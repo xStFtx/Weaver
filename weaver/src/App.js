@@ -31,6 +31,17 @@ function App() {
         <Search onWeatherData={handleWeatherData} />
         {weatherData && <WeatherDisplay weatherData={weatherData} />} 
       </header>
+      <footer className="App-footer">
+      <div>
+      <a href="https://github.com/xStFtx" target="_blank">
+        <img src="github.png" alt="GitHub" className='smaller-image'/>
+      </a>
+      <a href="https://www.linkedin.com/in/philip-esterhuizen-39552b21b/" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" className='smaller-image' />
+      </a>
+    </div>
+
+      </footer>
     </div>
   );
 }

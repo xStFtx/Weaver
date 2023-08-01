@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   color: #65cac2;
-  background-color: #111010;
+  background-color: #3b3b3b;
 }
 
 .App-logo {
@@ -10,7 +10,22 @@
   border-radius: 50%; /* Make the logo more round */
 }
 
+.App-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #3b3b3b;
+  color: white;
+  text-align: center;
+}
 
+.App-footer a {
+  color: #65cac2;
+  margin: 0 10px;
+  text-decoration: none;
+}  
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -18,10 +33,16 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  margin-bottom: 60px;
 }
 
 .App-link {
   color: #65cac2;
+}
+
+.smaller-image {
+  width: 50px;
+  height: 50px;
 }
 
 @keyframes App-logo-spin {

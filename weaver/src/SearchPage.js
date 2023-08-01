@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import { API_KEY } from './config'; 
 
 function Search({ onWeatherData }) {
   const [query, setQuery] = useState('');
@@ -10,8 +11,8 @@ function Search({ onWeatherData }) {
   };
 
   const handleSearch = () => {
-    const apiKey = ''; //Your API key
-    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}&aqi=no`;
+
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${query}&aqi=no`;
 
     axios
       .get(apiUrl)
