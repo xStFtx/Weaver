@@ -10,7 +10,7 @@ function Search({ onWeatherData }) {
   };
 
   const handleSearch = () => {
-    const apiKey = '553816bd9e804a64a8481341230108';
+    const apiKey = ''; //Your API key
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}&aqi=no`;
 
     axios
