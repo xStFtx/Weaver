@@ -1,11 +1,18 @@
-import React from 'react';
-import logo from './logo.png';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 import Search from './SearchPage';
-import RainAnimation from './RainAnimation';
-import WeatherToggles from './WeatherToggles';
+import WeatherDisplay from './WeatherDisplay';
+import logo from './logo.png';
 
 function App() {
+
+  const [weatherData, setWeatherData] = useState(null);
+
+  const handleWeatherData = (data) => {
+    setWeatherData(data);
+  };
+
   return (
     <div className="App">
       <header className="App-header" >
@@ -21,7 +28,8 @@ function App() {
           
         </p>
         
-        <Search />
+        <Search onWeatherData={handleWeatherData} />
+        {weatherData && <WeatherDisplay weatherData={weatherData} />} 
       </header>
     </div>
   );

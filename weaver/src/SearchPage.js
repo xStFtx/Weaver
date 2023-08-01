@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 
-function Search() {
+function Search({ onWeatherData }) {
   const [query, setQuery] = useState('');
 
   const handleInputChange = (event) => {
@@ -9,16 +10,28 @@ function Search() {
   };
 
   const handleSearch = () => {
-    // Perform the weather data fetching based on the user's query
-    // You can use the 'query' state variable to get the user's input
-    // and make API requests to fetch weather data for the entered location.
-    // Implement the logic to fetch weather data and update the state with the results.
-    console.log('Searching for:', query);
+    const apiKey = '553816bd9e804a64a8481341230108';
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${query}&aqi=no`;
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        console.log('Weather data:', response.data);
+        onWeatherData(response.data); // Call the onWeatherData handler to update the state in App.js
+      })
+      .catch((error) => {
+        console.error('Error fetching weather data:', error);
+      });
+  };
+
+  const handleClear = () => {
+    setQuery('');
+    onWeatherData(null); // Clear the weather data in App.js by passing null
   };
 
   return (
     <div className="search-container">
-     <br />
+      <br />
       <input
         className="Search-input"
         type="text"
@@ -28,8 +41,13 @@ function Search() {
       />
       <br />
       <br />
-      
-      <button className="button" onClick={handleSearch}>Search</button>
+
+      <button className="button" onClick={handleSearch}>
+        Search
+      </button>
+      <button className="button" onClick={handleClear}>
+        Clear
+      </button>
     </div>
   );
 }
